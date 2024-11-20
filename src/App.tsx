@@ -6,12 +6,16 @@ import Card from "./components/Card/Card";
 import { Accommodation, AccommodationApi } from "./models/Accommodation";
 import { AccommodationFactory } from "./Factories/AccommodationFactory";
 import FooterLogo from "./assets/images/footer-logo.svg";
+// import { useFetch } from "./utils/hooks/useFetch";
 
 function App() {
   const [accommodations, setAccommodations] = useState<[Accommodation] | null>(
     null
   );
   const [error, setError] = useState("");
+
+  // const [data, error, isLoading] = useFetch("./data/data.json");
+  // console.log(data);
 
   useEffect(() => {
     fetch("./data/data.json")
