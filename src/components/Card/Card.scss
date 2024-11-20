@@ -1,0 +1,49 @@
+@use "../../App.scss" as *;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: calc((340 / 1440) * 100vw);
+  aspect-ratio: 1/1;
+  background-color: $primary-color;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @include tablet-only() {
+    width: 100%;
+    aspect-ratio: 335 / 255;
+  }
+
+  &::after {
+    content: " ";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.524), transparent 50%);
+  }
+
+  &__title {
+    min-width: 150px;
+    width: 50%;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    z-index: 10;
+  }
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    @include tablet-only() {
+      object-fit: fill;
+    }
+  }
+}

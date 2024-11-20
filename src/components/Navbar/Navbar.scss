@@ -1,0 +1,52 @@
+@use "../../App.scss" as *;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px $px-lg;
+
+  @include mobile-only {
+    padding: $px-sm;
+  }
+
+  .image-wrapper {
+    position: relative;
+    height: 68px;
+    aspect-ratio: 211 / 68;
+    @include mobile-only {
+      height: 47px;
+    }
+
+    img {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 57px;
+    @include mobile-only {
+      gap: 26px;
+    }
+
+    &__item {
+      a {
+        font-size: 1.5rem;
+        @include mobile-only {
+          font-size: 12px;
+          text-transform: uppercase;
+        }
+      }
+      &.current {
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
