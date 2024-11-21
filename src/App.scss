@@ -15,6 +15,10 @@ $primary-bg: #f6f6f6;
   }
 }
 
+.btn {
+  cursor: pointer;
+}
+
 .section {
   margin: 0 $px-lg;
   padding: 50px calc((56 / 1440) * 100vw);
@@ -70,4 +74,112 @@ $primary-bg: #f6f6f6;
   padding-bottom: 29px;
   background-color: black;
   color: white;
+}
+
+.loader-wrapper {
+  position: static;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.loader {
+  border: 16px solid transparent; /* Light grey */
+  border-top: 8px solid $primary-color; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.section--description {
+  margin: 0 $px-lg;
+}
+
+.section--accommodation-data {
+  margin: 0 $px-lg;
+  margin-top: 30px;
+  margin-bottom: 1.5rem;
+
+  .title {
+    color: #ff6060;
+    font-size: 2.25rem;
+    font-weight: 500;
+  }
+
+  .location {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .tags-list {
+    display: flex;
+    gap: 10px;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      width: 115px;
+      height: 25px;
+      color: white;
+      background-color: $primary-color;
+    }
+  }
+
+  .host {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 21px;
+    .image-wrapper {
+      position: relative;
+      height: 64px;
+      width: 64px;
+      border-radius: 50px;
+      background-color: $primary-bg;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .name {
+      color: $primary-color;
+      font-size: 18px;
+      width: 100px;
+      text-align: right;
+    }
+  }
+
+  .rating {
+    display: flex;
+    gap: 12px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
 }

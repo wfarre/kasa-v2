@@ -1,0 +1,51 @@
+@use "../../App.scss" as *;
+
+.dropdown {
+  flex: 1;
+  // width: 100%;
+  .btn--expand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 2 * 10px);
+    padding: 10px;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 5px;
+    border: none;
+
+    .image-wrapper {
+      position: relative;
+      height: 32px;
+      width: 32px;
+
+      img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: rotateZ(90deg);
+      }
+
+      &.open {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+
+  &__content {
+    width: calc(100% - 2 * 10px);
+    background-color: $primary-bg;
+    padding: 25px 20px;
+    transform: scaleY(1);
+    transition: 300ms transform;
+    transform-origin: top center;
+    border-radius: 0 0 10px 10px;
+
+    &.hidden {
+      transform: scaleY(0);
+      transition: 300ms transform;
+    }
+  }
+}

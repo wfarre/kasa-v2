@@ -1,0 +1,65 @@
+@use "../../App.scss" as *;
+
+.carousel {
+  margin: 0 $px-lg;
+}
+
+.carousel {
+  position: relative;
+
+  .viewport {
+    display: flex;
+    flex-direction: row;
+    height: 415px;
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    &__item {
+      height: 100%;
+      width: 100%;
+      scroll-snap-align: center;
+      &.show {
+        display: block;
+      }
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  .image-wrapper {
+    position: relative;
+    height: 100%;
+    width: calc(((1440 - 200) / 1440) * 100vw);
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  .btn {
+    position: absolute;
+    height: 80px;
+    width: 47px;
+    z-index: 100;
+    top: 50%;
+    border: none;
+    background-color: transparent;
+    &--right {
+      right: 24px;
+    }
+    &--left {
+      left: 24px;
+    }
+  }
+}
