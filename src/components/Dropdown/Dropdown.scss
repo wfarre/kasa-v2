@@ -2,12 +2,11 @@
 
 .dropdown {
   flex: 1;
-  // width: 100%;
   .btn--expand {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    width: calc(100% - 2 * 10px);
+    width: 100%;
     padding: 10px;
     background-color: $primary-color;
     color: white;
@@ -34,18 +33,30 @@
     }
   }
 
+  // .content-wrapper {
+  //   transform: scaleY(1);
+  //   transition: 300ms transform;
+  //   transform-origin: top center;
+  //   &.hidden {
+  //     transform: scaleY(0);
+  //     transition: 300ms transform;
+  //     font-size: 0;
+  //     padding: 0;
+  //   }
+  // }
+
   &__content {
-    width: calc(100% - 2 * 10px);
     background-color: $primary-bg;
     padding: 25px 20px;
+    border-radius: 0 0 10px 10px;
     transform: scaleY(1);
     transition: 300ms transform;
     transform-origin: top center;
-    border-radius: 0 0 10px 10px;
-
     &.hidden {
       transform: scaleY(0);
       transition: 300ms transform;
+      font-size: 0;
+      padding: 0;
     }
   }
 }

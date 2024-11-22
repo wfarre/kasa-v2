@@ -1,12 +1,16 @@
 import React from "react";
-import BgImg from "../../assets/images/hero-banner.jpg";
 import "./Hero.scss";
 
-const Hero = () => {
+interface Props {
+  title?: string;
+  bgImg: string;
+}
+
+const Hero = (props: Props) => {
   return (
     <header className="hero">
-      <img src={BgImg} alt="" className="bg-img" />
-      <h1 className="title">Chez vous, partout et ailleurs</h1>
+      <img src={props.bgImg} alt="" className="bg-img" />
+      <h1 className="title">{props.title}</h1>
     </header>
   );
 };

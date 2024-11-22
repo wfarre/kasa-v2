@@ -21,31 +21,97 @@ $primary-bg: #f6f6f6;
 
 .section {
   margin: 0 $px-lg;
-  padding: 50px calc((56 / 1440) * 100vw);
-  background-color: $primary-bg;
 
   @include mobile-only() {
-    padding: 0;
     margin: 0 $px-sm;
   }
-}
 
-.accommodations-list {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  row-gap: calc((50 / 1440) * 100vw);
-  column-gap: calc((50 / 1440) * 100vw);
-  @include mobile-only() {
-    row-gap: 20px;
+  &--accommodation-list {
+    padding: 50px calc((56 / 1440) * 100vw);
+    background-color: $primary-bg;
+
+    @include mobile-only() {
+      padding: 0;
+    }
+
+    .accommodations-list {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: calc((50 / 1440) * 100vw);
+      column-gap: calc((50 / 1440) * 100vw);
+      @include mobile-only() {
+        row-gap: 20px;
+      }
+
+      &__item {
+        @include tablet-only() {
+          width: 100%;
+        }
+        &:last-child {
+          margin-right: auto;
+        }
+      }
+    }
   }
 
-  &__item {
-    @include tablet-only() {
-      width: 100%;
+  &--description {
+    .container {
+      row-gap: 20px;
+      column-gap: 76px;
     }
-    &:last-child {
-      margin-right: auto;
+  }
+
+  &--accommodation-data {
+    margin-top: 30px;
+    margin-bottom: 1.5rem;
+    .title {
+      color: #ff6060;
+      font-size: 2.25rem;
+      font-weight: 500;
+    }
+
+    .location {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .tags-list {
+      display: flex;
+      gap: 10px;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        min-width: 115px;
+        height: 25px;
+        padding: 0 21px;
+        color: white;
+        background-color: $primary-color;
+      }
+    }
+
+    .host {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 21px;
+      .image-wrapper {
+        height: 64px;
+        width: 64px;
+        border-radius: 50px;
+        background-color: $primary-bg;
+      }
+
+      .name {
+        color: $primary-color;
+        font-size: 18px;
+        width: 100px;
+        text-align: right;
+      }
     }
   }
 }
@@ -57,23 +123,6 @@ $primary-bg: #f6f6f6;
   font-size: 3rem;
   height: 100vh;
   width: 100%;
-}
-
-.footer {
-  position: relative;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 29px;
-  margin-top: 50px;
-  padding-top: 66px;
-  padding-bottom: 29px;
-  background-color: black;
-  color: white;
 }
 
 .loader-wrapper {
@@ -106,80 +155,18 @@ $primary-bg: #f6f6f6;
   }
 }
 
-.section--description {
-  margin: 0 $px-lg;
-}
-
-.section--accommodation-data {
-  margin: 0 $px-lg;
-  margin-top: 30px;
-  margin-bottom: 1.5rem;
-
-  .title {
-    color: #ff6060;
-    font-size: 2.25rem;
-    font-weight: 500;
-  }
-
-  .location {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-
-  .tags-list {
-    display: flex;
-    gap: 10px;
-
-    &__item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      width: 115px;
-      height: 25px;
-      color: white;
-      background-color: $primary-color;
-    }
-  }
-
-  .host {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 21px;
-    .image-wrapper {
-      position: relative;
-      height: 64px;
-      width: 64px;
-      border-radius: 50px;
-      background-color: $primary-bg;
-      overflow: hidden;
-
-      img {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-      }
-    }
-
-    .name {
-      color: $primary-color;
-      font-size: 18px;
-      width: 100px;
-      text-align: right;
-    }
-  }
-
-  .rating {
-    display: flex;
-    gap: 12px;
-  }
-}
-
 .container {
   display: flex;
   justify-content: space-between;
+
+  &--column {
+    flex-direction: column;
+    margin: 0 108px;
+    row-gap: 30px;
+
+    @include tablet-only() {
+      margin: 0;
+      row-gap: 20px;
+    }
+  }
 }
