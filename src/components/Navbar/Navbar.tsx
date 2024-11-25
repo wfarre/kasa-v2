@@ -1,19 +1,27 @@
 import React from "react";
 import Logo from "../../assets/images/logo.svg";
 import "./Navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import Image from "../Image/Image";
 
 const Navbar = () => {
+  const { pathname } = useLocation();
   return (
     <nav className="navbar">
-      <div className="image-wrapper">
-        <img src={Logo} alt="" />
-      </div>
+      <Image imgsrc={Logo} alt="Kasa" />
       <ul className="navbar__nav">
-        <li className="navbar__nav__item current">
+        <li
+          className={`navbar__nav__item ${
+            pathname.toLowerCase() === "/" && "current"
+          }`}
+        >
           <Link to="/">Acceuil</Link>
         </li>
-        <li className="navbar__nav__item">
+        <li
+          className={`navbar__nav__item ${
+            pathname.toLowerCase() === "/about" && "current"
+          }`}
+        >
           <Link to="/About">A propos</Link>
         </li>
       </ul>

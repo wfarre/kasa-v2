@@ -28,6 +28,7 @@ $primary-bg: #f6f6f6;
 
   &--accommodation-list {
     padding: 50px calc((56 / 1440) * 100vw);
+    padding: 50px 56px;
     background-color: $primary-bg;
 
     @include mobile-only() {
@@ -39,18 +40,21 @@ $primary-bg: #f6f6f6;
       justify-content: space-between;
       flex-wrap: wrap;
       row-gap: calc((50 / 1440) * 100vw);
-      column-gap: calc((50 / 1440) * 100vw);
+      column-gap: 20px;
       @include mobile-only() {
         row-gap: 20px;
       }
 
       &__item {
+        flex: 1;
         @include tablet-only() {
           width: 100%;
+          flex: auto;
         }
-        &:last-child {
-          margin-right: auto;
-        }
+      }
+
+      &:last-child {
+        margin-right: auto;
       }
     }
   }
@@ -65,6 +69,12 @@ $primary-bg: #f6f6f6;
   &--accommodation-data {
     margin-top: 30px;
     margin-bottom: 1.5rem;
+    .container {
+      @include tablet-only() {
+        flex-direction: column;
+        row-gap: 16px;
+      }
+    }
     .title {
       color: #ff6060;
       font-size: 2.25rem;
@@ -78,6 +88,7 @@ $primary-bg: #f6f6f6;
 
     .tags-list {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
 
       &__item {
@@ -98,7 +109,7 @@ $primary-bg: #f6f6f6;
       flex-direction: row-reverse;
       align-items: center;
       gap: 10px;
-      margin-bottom: 21px;
+
       .image-wrapper {
         height: 64px;
         width: 64px;
@@ -158,15 +169,67 @@ $primary-bg: #f6f6f6;
 .container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 30px;
+
+  @include tablet-only() {
+    margin: 0;
+    row-gap: 20px;
+  }
 
   &--column {
     flex-direction: column;
     margin: 0 108px;
-    row-gap: 30px;
+  }
+}
 
-    @include tablet-only() {
-      margin: 0;
-      row-gap: 20px;
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  padding-bottom: 238px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.host-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 21px;
+
+  @include tablet-only() {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 139px;
+
+  &__title {
+    .title {
+      font-size: 288px;
+      font-weight: 700;
+      color: $primary-color;
+    }
+  }
+
+  &__text {
+    font-size: 36px;
+    font-weight: 500;
+    color: $primary-color;
+  }
+
+  &__link {
+    .link {
+      text-decoration: underline;
+      font-size: 18px;
     }
   }
 }

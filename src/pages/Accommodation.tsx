@@ -46,7 +46,7 @@ const Accommodation = () => {
       </section>
       <section className="section section--accommodation-data">
         <div className="container">
-          <div>
+          <div className="accommodation-info">
             <h1 className="title">{accommodation?.title}</h1>
             <p className="location">{accommodation?.location}</p>
             <ul className="tags-list">
@@ -57,7 +57,7 @@ const Accommodation = () => {
               ))}
             </ul>
           </div>
-          <div>
+          <div className="host-info">
             <figure className="host">
               <Image
                 imgsrc={accommodation?.host.picture}

@@ -5,13 +5,16 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  width: calc((340 / 1440) * 100vw);
-  aspect-ratio: 1/1;
+  min-width: calc((340 / 1440) * 100vw);
+  height: calc((340 / 1440) * 100vw);
+  width: 100%;
   background-color: $primary-color;
   border-radius: 10px;
   overflow: hidden;
 
   @include tablet-only() {
+    min-width: none;
+    height: auto;
     width: 100%;
     aspect-ratio: 335 / 255;
   }

@@ -5,17 +5,23 @@ import { Route, Routes } from "react-router-dom";
 import Accommodation from "./pages/Accommodation";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Error from "./pages/Error";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/accommodation/:id" element={<Accommodation />} />
-      </Routes>
-      <Footer />
+      <div className="page-container">
+        <Navbar />
+        <div className="content-wrapper">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/accommodation/:id" element={<Accommodation />} />
+            <Route path="/error" element={<Error />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }

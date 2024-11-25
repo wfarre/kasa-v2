@@ -8,14 +8,13 @@
     flex-direction: row;
     height: 415px;
     width: 100%;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
+    @include mobile-only {
+      height: 255px;
+    }
 
     &__item {
       height: 100%;
       width: 100%;
-      scroll-snap-align: center;
       &.show {
         display: block;
       }
@@ -28,7 +27,6 @@
   .image-wrapper {
     position: relative;
     height: 100%;
-    width: calc(((1440 - 200) / 1440) * 100vw);
     border-radius: 25px;
     overflow: hidden;
   }
