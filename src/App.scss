@@ -36,25 +36,20 @@ $primary-bg: #f6f6f6;
     }
 
     .accommodations-list {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      row-gap: calc((50 / 1440) * 100vw);
-      column-gap: 20px;
+      gap: 3em;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       @include mobile-only() {
+        grid-template-columns: none;
         row-gap: 20px;
       }
 
       &__item {
-        flex: 1;
+        aspect-ratio: 1/1;
         @include tablet-only() {
           width: 100%;
-          flex: auto;
+          aspect-ratio: unset;
         }
-      }
-
-      &:last-child {
-        margin-right: auto;
       }
     }
   }
