@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useFetch } from "../utils/hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 import { AccommodationFactory } from "../Factories/AccommodationFactory";
 import { AccommodationApi } from "../models/Accommodation";
-import Card from "../components/Card/Card";
-import Hero from "../components/Hero/Hero";
+import Card from "../components/ui/Card/Card";
+import Hero from "../components/layout/Hero/Hero";
+import HeroBannerImg from "../assets/images/hero-banner.png";
+import Loader from "../components/ui/Loader/Loader";
+import { useNavigate } from "react-router-dom";
 import "../App.scss";
 import "./pages.scss";
 
-import HeroBannerImg from "../assets/images/hero-banner.png";
-
 const Home = () => {
+  document.title = "Kasa";
+  const navigate = useNavigate();
+  const [data, error, isLoading] = useFetch("../data/data.json");
   const [accommodations, setAccommodations] = useState<
     AccommodationFactory[] | null
   >(null);
 
-  const [data, error, isLoading] = useFetch("../data/data.json");
-  console.log(isLoading);
+  useEffect(() => {
+    if (error) {
+      return navigate("/error", {
+        state: { status: 500, message: "Oops! Un problème est survenu..." },
+      });
+    }
+  }, [error]);
 
   useEffect(() => {
     if (data) {
@@ -25,13 +34,17 @@ const Home = () => {
       setAccommodations(parsedAccommodations);
     }
   }, [data]);
+
   return (
     <>
       <Hero bgImg={HeroBannerImg} title="Chez vous, partout et ailleurs" />
       <main>
+        {isLoading && <Loader />}
         <section className="section section--accommodation-list">
           {error ? (
-            <span className="error-message">Ooops! Something went wrong</span>
+            <span className="error-message">
+              Ooops! Il y a eu un problème...
+            </span>
           ) : (
             <ul className="accommodations-list">
               {accommodations?.map((accommodation) => {

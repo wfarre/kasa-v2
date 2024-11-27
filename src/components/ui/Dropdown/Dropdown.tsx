@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import Chrevron from "../../assets/images/chevron-left.svg";
+import Chrevron from "./images/chevron-left.svg";
 import "./Dropdown.scss";
 
 interface Props {
@@ -12,14 +11,14 @@ const Dropdown = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="dropdown">
+    <div className="dropdown" data-expanded={isOpen}>
       <button className="btn btn--expand" onClick={() => setIsOpen(!isOpen)}>
         <h2>{props.title}</h2>
         <picture className={`image-wrapper ${isOpen ? "open" : ""}`}>
           <img src={Chrevron} alt="" />
         </picture>
+        <span hidden>Ouvrir our fermer détails concernant {props.title}</span>
       </button>
-      {/* <div className={`content-wrapper ${isOpen ? "" : "hidden"}`}> */}
       <div className={`dropdown__content ${isOpen ? "" : "hidden"}`}>
         {typeof props.content === "string" ? (
           <p className="text">{props.content}</p>
@@ -31,7 +30,6 @@ const Dropdown = (props: Props) => {
           </ul>
         )}
       </div>
-      {/* </div> */}
     </div>
   );
 };

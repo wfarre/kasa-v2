@@ -1,6 +1,6 @@
 import "./App.scss";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+import Navbar from "./components/layout/Navbar/Navbar";
+import Footer from "./components/layout/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import Accommodation from "./pages/Accommodation";
 import Home from "./pages/Home";

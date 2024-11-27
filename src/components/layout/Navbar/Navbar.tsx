@@ -1,8 +1,8 @@
 import React from "react";
-import Logo from "../../assets/images/logo.svg";
+import Logo from "./images/logo.svg";
 import "./Navbar.scss";
 import { Link, useLocation } from "react-router-dom";
-import Image from "../Image/Image";
+import Image from "../../ui/Image/Image";
 
 const Navbar = () => {
   const { pathname } = useLocation();

@@ -1,40 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { useFetch } from "../utils/hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 import { useNavigate, useParams } from "react-router-dom";
 import { AccommodationFactory } from "../Factories/AccommodationFactory";
 import { AccommodationApi } from "../models/Accommodation";
-import Carousel from "../components/Carousel/Carousel";
-import Rating from "../components/Rating/Rating";
+import Carousel from "../components/ui/Carousel/Carousel";
+import Rating from "../components/ui/Rating/Rating";
 
-import Dropdown from "../components/Dropdown/Dropdown";
-import Image from "../components/Image/Image";
+import Dropdown from "../components/ui/Dropdown/Dropdown";
+import Image from "../components/ui/Image/Image";
 import "./pages.scss";
+import Loader from "../components/ui/Loader/Loader";
 
 const Accommodation = () => {
+  document.title = "Kasa - Logements";
   const [accommodation, setAccommodation] = useState<
     AccommodationFactory | null | undefined
   >(null);
-
   const [data, error, isLoading] = useFetch("/data/data.json");
-
-  console.log(error);
-  console.log(isLoading);
-  if (error) {
-    throw Error("Oops something went wront");
-  }
-
   const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (error) {
+      return navigate("/error", {
+        state: { status: 500, message: "Oops! Un problème est survenu..." },
+      });
+    }
+  }, [error]);
 
   useEffect(() => {
     const foundAccommodation = data?.find(
       (accommodation) => (accommodation as AccommodationApi).id === id
     );
+    if (data && !foundAccommodation) {
+      console.log("nya");
 
-    if ((data && !foundAccommodation) || error) {
       navigate("/error");
     }
-
     if (foundAccommodation) {
       const parsedAccommodation = new AccommodationFactory(
         foundAccommodation as AccommodationApi,
@@ -42,10 +44,11 @@ const Accommodation = () => {
       );
       setAccommodation(parsedAccommodation);
     }
-  }, [data, id, error, navigate]);
+  }, [data, id, navigate]);
 
   return (
-    <>
+    <main>
+      {isLoading && <Loader />}
       <section className="section">
         <Carousel
           pictures={accommodation?.pictures ? accommodation?.pictures : []}
@@ -88,7 +91,7 @@ const Accommodation = () => {
           <Dropdown title={"Equipments"} content={accommodation?.equipments} />
         </div>
       </section>
-    </>
+    </main>
   );
 };
 

@@ -1,4 +1,4 @@
-@use "../../App.scss" as *;
+@use "../../../App.scss" as *;
 
 .dropdown {
   flex: 1;
@@ -32,18 +32,6 @@
       }
     }
   }
-
-  // .content-wrapper {
-  //   transform: scaleY(1);
-  //   transition: 300ms transform;
-  //   transform-origin: top center;
-  //   &.hidden {
-  //     transform: scaleY(0);
-  //     transition: 300ms transform;
-  //     font-size: 0;
-  //     padding: 0;
-  //   }
-  // }
 
   &__content {
     background-color: $primary-bg;

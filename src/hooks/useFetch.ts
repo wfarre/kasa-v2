@@ -17,8 +17,10 @@ export const useFetch = (
         throw Error("Something went wrong");
       })
       .then((data) => {
-        setIsLoading(false);
-        setData(data);
+        setTimeout(() => {
+          setIsLoading(false);
+          setData(data);
+        }, 2000);
       })
       .catch((error) => {
         setIsLoading(false);

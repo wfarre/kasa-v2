@@ -77,25 +77,36 @@
         background-color: $primary-color;
       }
     }
-
-    .host {
+    .host-info {
       display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      row-gap: 21px;
 
-      .image-wrapper {
-        height: 64px;
-        width: 64px;
-        border-radius: 50px;
-        background-color: $primary-bg;
+      @include tablet-only() {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
       }
 
-      .name {
-        color: $primary-color;
-        font-size: 18px;
-        width: 100px;
-        text-align: right;
+      .host {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 10px;
+
+        .image-wrapper {
+          height: 64px;
+          width: 64px;
+          border-radius: 50px;
+          background-color: $primary-bg;
+        }
+
+        .name {
+          color: $primary-color;
+          font-size: 18px;
+          width: 100px;
+          text-align: right;
+        }
       }
     }
   }

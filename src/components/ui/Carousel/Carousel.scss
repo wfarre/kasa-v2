@@ -1,7 +1,17 @@
-@use "../../App.scss" as *;
+@use "../../../App.scss" as *;
 
 .carousel {
   position: relative;
+
+  .picture-index {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: 18px;
+    color: white;
+  }
 
   .viewport {
     display: flex;

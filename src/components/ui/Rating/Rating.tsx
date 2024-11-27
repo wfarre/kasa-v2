@@ -1,6 +1,6 @@
 import React from "react";
-import FilledStar from "../../assets/images/star-filled.svg";
-import EmptyStar from "../../assets/images/star-empty.svg";
+import FilledStar from "./images/star-filled.svg";
+import EmptyStar from "./images/star-empty.svg";
 import Image from "../Image/Image";
 import "./Rating.scss";
 

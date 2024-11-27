@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import ChevronRight from "./assets/chevron-right.svg";
-import ChevronLeft from "./assets/chevron-left.svg";
+import ChevronRight from "./images/chevron-right.svg";
+import ChevronLeft from "./images/chevron-left.svg";
 import "./Carousel.scss";
+import IconButton from "../IconButton/IconButton";
 
 interface Props {
   pictures: string[];
@@ -25,12 +26,21 @@ const Carousel = (props: Props) => {
     );
   return (
     <div className="carousel">
-      <button className="btn btn--left" onClick={prevSlide}>
-        <img src={ChevronLeft} alt="" />
-      </button>
-      <button className="btn btn--right" onClick={nextSlide}>
-        <img src={ChevronRight} alt="" />
-      </button>
+      <IconButton
+        className="btn--left"
+        onClick={prevSlide}
+        actionDescription="photo précédente"
+        icon={ChevronLeft}
+      />
+      <IconButton
+        className="btn--right"
+        onClick={nextSlide}
+        actionDescription="photo suivante"
+        icon={ChevronRight}
+      />
+      <span className="picture-index">
+        {currentImageIndex + 1}/{props.pictures.length}
+      </span>
       <ul className="viewport">
         {props.pictures.map((picture, index) => {
           return (

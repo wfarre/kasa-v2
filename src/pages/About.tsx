@@ -1,7 +1,7 @@
 import React from "react";
 import HeroBannerImg from "../assets/images/about-banner.png";
-import Hero from "../components/Hero/Hero";
-import Dropdown from "../components/Dropdown/Dropdown";
+import Hero from "../components/layout/Hero/Hero";
+import Dropdown from "../components/ui/Dropdown/Dropdown";
 import "./pages.scss";
 
 const dropdownData: { title: string; content: string }[] = [
@@ -28,6 +28,7 @@ const dropdownData: { title: string; content: string }[] = [
 ];
 
 const About = () => {
+  document.title = "Kasa - A propos";
   return (
     <>
       <Hero bgImg={HeroBannerImg} />
@@ -36,12 +37,8 @@ const About = () => {
           <ul className="container container--column">
             {dropdownData.map((item, index) => {
               return (
-                <li>
-                  <Dropdown
-                    title={item.title}
-                    content={item.content}
-                    key={`dropdown${index}`}
-                  />
+                <li key={`dropdown${index}`}>
+                  <Dropdown title={item.title} content={item.content} />
                 </li>
               );
             })}
