@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./pages.scss";
 import ErrorMessage from "../components/ui/ErrorMessage/ErrorMessage";
 import { useLocation } from "react-router-dom";

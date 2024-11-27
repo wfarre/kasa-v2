@@ -1,4 +1,3 @@
-import React from "react";
 import FilledStar from "./images/star-filled.svg";
 import EmptyStar from "./images/star-empty.svg";
 import Image from "../Image/Image";

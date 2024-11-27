@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Chrevron from "./images/chevron-left.svg";
 import "./Dropdown.scss";
 

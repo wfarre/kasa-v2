@@ -1,4 +1,3 @@
-import React from "react";
 import FooterLogo from "./images/footer-logo.svg";
 import Image from "../../ui/Image/Image";
 import "./Footer.scss";

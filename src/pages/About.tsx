@@ -1,4 +1,3 @@
-import React from "react";
 import HeroBannerImg from "../assets/images/about-banner.png";
 import Hero from "../components/layout/Hero/Hero";
 import Dropdown from "../components/ui/Dropdown/Dropdown";

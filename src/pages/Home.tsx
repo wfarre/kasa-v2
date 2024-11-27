@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { AccommodationFactory } from "../Factories/AccommodationFactory";
 import { AccommodationApi } from "../models/Accommodation";
