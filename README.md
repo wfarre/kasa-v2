@@ -1,50 +1,37 @@
-# React + TypeScript + Vite
+# Kasa v2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is an OpenClassrooms' project to practice React. I decided to make another version of it to practice my React skills.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The web application was built using Vite. The original project was built using create-react-app but I think Vite is more modern and recommended in React documentation, so I decided to go for it.
 
-## Expanding the ESLint configuration
+Stack list:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Vite
+- React.js
+- React-router v6
+- Sass
+- TypeScript (for more challenge)
 
-- Configure the top-level `parserOptions` property like this:
+## How to install it locally ?
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+First, fork the project then on the terminal type:
+
+```
+npm i
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+or
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm install
+```
+
+then, to lauch it:
+
+```
+npm run dev
+```
+
+it should be opened on http://localhost:5173/ .

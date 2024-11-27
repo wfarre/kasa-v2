@@ -1,0 +1,49 @@
+@use "../../App.scss" as *;
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 139px;
+
+  @include mobile-only {
+    gap: 113px;
+  }
+
+  &__title {
+    .title {
+      font-size: 288px;
+      font-weight: 700;
+      color: $primary-color;
+
+      @include mobile-only {
+        font-size: 99px;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 36px;
+    font-weight: 500;
+    color: $primary-color;
+    padding: 0 calc((57 / 375) * 100vw);
+    text-align: center;
+
+    @include mobile-only {
+      font-size: 18px;
+    }
+  }
+
+  &__link {
+    text-align: center;
+
+    .link {
+      text-decoration: underline;
+      font-size: 18px;
+
+      @include mobile-only {
+        font-size: 14px;
+      }
+    }
+  }
+}

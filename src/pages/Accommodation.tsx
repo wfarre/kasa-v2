@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFetch } from "../utils/hooks/useFetch";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AccommodationFactory } from "../Factories/AccommodationFactory";
 import { AccommodationApi } from "../models/Accommodation";
 import Carousel from "../components/Carousel/Carousel";
@@ -8,22 +8,32 @@ import Rating from "../components/Rating/Rating";
 
 import Dropdown from "../components/Dropdown/Dropdown";
 import Image from "../components/Image/Image";
+import "./pages.scss";
 
 const Accommodation = () => {
-  const [accommodation, setAccommodation] =
-    useState<AccommodationFactory | null>(null);
+  const [accommodation, setAccommodation] = useState<
+    AccommodationFactory | null | undefined
+  >(null);
 
   const [data, error, isLoading] = useFetch("/data/data.json");
 
   console.log(error);
   console.log(isLoading);
+  if (error) {
+    throw Error("Oops something went wront");
+  }
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const foundAccommodation = data?.find(
       (accommodation) => (accommodation as AccommodationApi).id === id
     );
+
+    if ((data && !foundAccommodation) || error) {
+      navigate("/error");
+    }
 
     if (foundAccommodation) {
       const parsedAccommodation = new AccommodationFactory(
@@ -31,10 +41,8 @@ const Accommodation = () => {
         "APIV1"
       );
       setAccommodation(parsedAccommodation);
-    } else {
-      // throw Error("Not found");
     }
-  }, [data, id]);
+  }, [data, id, error, navigate]);
 
   return (
     <>

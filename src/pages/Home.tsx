@@ -5,6 +5,7 @@ import { AccommodationApi } from "../models/Accommodation";
 import Card from "../components/Card/Card";
 import Hero from "../components/Hero/Hero";
 import "../App.scss";
+import "./pages.scss";
 
 import HeroBannerImg from "../assets/images/hero-banner.png";
 
