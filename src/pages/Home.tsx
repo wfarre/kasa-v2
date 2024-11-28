@@ -6,7 +6,7 @@ import Card from "../components/ui/Card/Card";
 import Hero from "../components/layout/Hero/Hero";
 import HeroBannerImg from "../assets/images/hero-banner.png";
 import Loader from "../components/ui/Loader/Loader";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../App.scss";
 import "./pages.scss";
 
@@ -53,12 +53,12 @@ const Home = () => {
                     className="accommodations-list__item"
                     key={accommodation.id}
                   >
-                    <a href={`/accommodation/${accommodation.id}`}>
+                    <Link to={`/accommodation/${accommodation.id}`}>
                       <Card
                         cover={accommodation.cover}
                         title={accommodation.title}
                       />
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
