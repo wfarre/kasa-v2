@@ -27,6 +27,13 @@
     &__item {
       a {
         font-size: 1.5rem;
+        font-weight: 500;
+        color: $primary-color;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
         @include mobile-only {
           font-size: 12px;
           text-transform: uppercase;

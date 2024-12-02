@@ -20,7 +20,7 @@ export const useFetch = (
         setTimeout(() => {
           setIsLoading(false);
           setData(data);
-        }, 2000);
+        }, 1000);
       })
       .catch((error) => {
         setIsLoading(false);
